@@ -18,5 +18,6 @@ namespace Authentication.Services
 
             return Convert.ToBase64String(hashBytes);
         }
+
     }
 }

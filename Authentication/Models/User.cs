@@ -1,8 +1,9 @@
 ﻿namespace Authentication.Models
 {
-    public class User
+    public class User : BaseEntity
     {
-        public string UserName { get; set; } 
-        public string Password { get; set; } 
+        public virtual string UserName { get; set; } 
+        public virtual string Password { get; set; } 
+        public virtual string Email { get; set; }
     }
 }

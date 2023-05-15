@@ -11,7 +11,7 @@ namespace Authentication.Services
         public ISessionFactory CreateSessionFactory()
         {
             return Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql2000.ConnectionString(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iruoma.onyia\Documents\User.mdf;Integrated Security=True;Connect Timeout=30")
+                .Database(MsSqlConfiguration.MsSql2005.ConnectionString(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\user\OneDrive\Documents\Authentication.mdf;Integrated Security=True;Connect Timeout=30")
                 .ShowSql())
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Program>())
                 .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))

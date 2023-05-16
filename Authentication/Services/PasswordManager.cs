@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using System.Text;
 
 namespace Authentication.Services
 {
@@ -6,17 +7,22 @@ namespace Authentication.Services
     {
         public static string HashPassword(string password)
         {
-            byte[] salt;
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+            //byte[] salt;
+            //new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
 
-            var pbkdf2Service = new Rfc2898DeriveBytes(password, salt, 100);
-            var hash = pbkdf2Service.GetBytes(20);
-            var hashBytes = new byte[36];
+            //var pbkdf2Service = new Rfc2898DeriveBytes(password, salt, 100);
+            //var hash = pbkdf2Service.GetBytes(20);
+            //var hashBytes = new byte[36];
 
-            Array.Copy(salt,0,hashBytes,0,16);
-            Array.Copy(hash,0,hashBytes,16,20);
+            //Array.Copy(salt,0,hashBytes,0,16);
+            //Array.Copy(hash,0,hashBytes,16,20);
 
-            return Convert.ToBase64String(hashBytes);
+            //return Convert.ToBase64String(hashBytes);
+
+            var sha = SHA1.Create();
+            var hash = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
+            var str = Convert.ToBase64String(hash);
+            return str;
         }
 
     }

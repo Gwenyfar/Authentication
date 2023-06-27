@@ -66,7 +66,7 @@ namespace Authentication.Controllers
             return Ok("Sign in successful");
         }
 
-        [HttpPost]
+        [HttpPost("logout")]
         public IActionResult SignOut()
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
